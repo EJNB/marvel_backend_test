@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { Colaborator } = require("../models/colaborators");
-const { Comic } = require("../models/comics");
 const { ColaboratorComic } = require("../models/colaboratorComic");
 const {
   marvelApiUrl,
@@ -10,6 +9,7 @@ const {
 } = require("../config/default.json");
 const _ = require("lodash");
 const { default: axios } = require("axios");
+const { getComic } = require("../utils/utils");
 
 // Update colaborators by comic.
 router.put("/", async (req, res) => {
@@ -19,11 +19,10 @@ router.put("/", async (req, res) => {
     return res.send("No tenemos resultados para el comic seleccionado");
 
   // Configure url and send request.
-  const url = `${marvelApiUrl}/comics?ts=1&apikey=${marvelAccesKey}&hash=${hash}&title=${comic.name}&limit=100`;
+  const url = `${marvelApiUrl}?ts=1&apikey=${marvelAccesKey}&hash=${hash}&title=${comic.name}&limit=100`;
   const { data } = await axios.get(url);
 
   for (let element of data.data.results) {
-    // data.data.results.forEach(async (element) => {
     for (let creator of element.creators.items) {
       switch (creator.role) {
         case "editor":
@@ -67,18 +66,9 @@ router.get("/:nickname", async (req, res) => {
   res.send(result);
 });
 
-// Service B
-// router.get("/marvel/characters/:nickname", (req, res) =>
-//   res.send("reporte de characters")
-// );
-
 async function exitsColaborator(name) {
   const colaborators = await Colaborator.find({ name });
   return colaborators.some((c) => c.name == name);
-}
-
-async function getComic(nickname) {
-  return await Comic.findOne({ nickname });
 }
 
 async function getColaboratorByComic(comic) {

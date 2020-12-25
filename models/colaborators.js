@@ -20,18 +20,6 @@ const colaboratorSchema = new mongoose.Schema({
   },
 });
 
-colaboratorSchema.statics.findByName = function (name) {
-  const colaborators = Colaborator.find({ name });
-  console.log(colaborators);
-  return colaborators.some((c) => c.name == name);
-  // {
-  //   // console.log(_.isArray(res) && _.isEmpty(res));
-  //   const result = res ? res : false;
-  //   console.log(result);
-  //   return res ? res : false;
-  // }
-};
-
 const Colaborator = mongoose.model("Colaborator", colaboratorSchema);
 
 function validateColaborator(colaborator) {

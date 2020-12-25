@@ -3,7 +3,7 @@
   "db": "mongodb://localhost/marvel",
   "port": "3900",
   "requiresAuth": true,
-  "marvelApiUrl": "https://gateway.marvel.com:443/v1/public",
+  "marvelApiUrl": "https://gateway.marvel.com:443/v1/public/comics",
   "marvelAccesKey": "59789ef396c209e760029a3536e42ba4",
   "marvelPrivateKey": "075b2755545938d8b668028399abc5455a7ba60a",
   "hash": "42f8068c21f583ce62e43e46721503fe"
