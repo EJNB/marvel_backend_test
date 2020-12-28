@@ -2,14 +2,7 @@
 
 # Ejercicio backend developer
 
-_Este proyecto se encarga d _
-
-## Comenzando 🚀
-
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
-Mira **Deployment** para conocer como desplegar el proyecto.
-
+_Ejercicio para consultar los editores, coloristas y escritores, asi como los personajes realacionados en los comics de los personajes Iron Man y Capitan America._
 
 ### Pre-requisitos 📋
 
